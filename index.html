@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Charan B R - Software Engineer & Java Developer specializing in resilient distributed systems, Spring Boot microservices, and modern web architectures." />
+  <meta name="keywords" content="Charan B R, Software Engineer, Java Developer, Spring Boot, Microservices, Cloud, Distributed Systems, Full Stack" />
+  <meta name="author" content="Charan B R" />
+
+  <title>Charan B R | Software Engineer &amp; Java Developer</title>
+
+  <!-- Google Fonts: Press Start 2P, Silkscreen, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cyber-workspace">
+
+  <!-- ==========================================================================
+       BACKGROUND CYBER GRID & SCANLINE PARTICLES
+       ========================================================================== -->
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <div class="cyber-scanlines" aria-hidden="true"></div>
+  <canvas id="particle-canvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==========================================================================
+       ARCADE CONTROL PANEL: LEFT VERTICAL PIXEL-ART NAVBAR
+       Unique retro-futuristic cyber-arcade control console
+       ========================================================================== -->
+  <aside id="arcade-control-panel" class="arcade-navbar" aria-label="Arcade Control Panel Navigation">
+    <!-- Screen Glare & CRT Scanline Textures -->
+    <div class="arcade-chassis-glare" aria-hidden="true"></div>
+    <div class="arcade-chassis-scanlines" aria-hidden="true"></div>
+
+    <!-- Mobile Drawer Close Button -->
+    <button id="arcade-close-btn" class="arcade-close-btn" type="button" aria-label="Close Arcade Menu">
+      <span class="pixel-close-cross">✕</span>
+      <span class="pixel-close-text">CLOSE</span>
+    </button>
+
+    <!-- Top Cabinet Marquee & Pixel Avatar Display -->
+    <div class="arcade-marquee-header">
+      <div class="arcade-marquee-led-strip">
+        <span class="arcade-led-dot active"></span>
+        <span class="arcade-marquee-badge">1P READY // INSERT COIN</span>
+        <span class="arcade-led-dot active"></span>
+      </div>
+
+      <!-- Small Pixel Avatar / Logo at top -->
+      <div class="arcade-avatar-unit">
+        <div class="arcade-avatar-bezel">
+          <img
+            src="charan-pixel-avatar.jpg"
+            alt="Charan B R Pixel Art Cyber Avatar"
+            class="arcade-avatar-img"
+            width="82"
+            height="82"
+            loading="eager"
+          />
+          <span class="avatar-lvl-pill">LVL 99</span>
+          <div class="avatar-corner-deco top-l" aria-hidden="true"></div>
+          <div class="avatar-corner-deco top-r" aria-hidden="true"></div>
+          <div class="avatar-corner-deco bot-l" aria-hidden="true"></div>
+          <div class="avatar-corner-deco bot-r" aria-hidden="true"></div>
+        </div>
+
+        <div class="arcade-identity-hud">
+          <div class="arcade-player-callout">
+            <span class="player-tag">PLAYER 1:</span>
+            <span class="player-name">CHARAN B R</span>
+          </div>
+          <div class="arcade-class-tag">JAVA ARCHITECT</div>
+          <div class="arcade-hp-cluster" title="System Energy &amp; Availability: 100% ONLINE">
+            <div class="arcade-hp-labels">
+              <span class="hp-txt">EXP</span>
+              <span class="hp-val">99,840 PTS</span>
+            </div>
+            <div class="arcade-hp-track">
+              <div class="arcade-hp-fill" style="width: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arcade Mission Navigation Header -->
+    <div class="arcade-nav-banner">
+      <span class="arcade-banner-icon" aria-hidden="true">🕹️</span>
+      <span class="arcade-banner-title">SELECT STAGE</span>
+      <span class="arcade-banner-ver">[SYS v2.4]</span>
+    </div>
+
+    <!-- Main 8 Pixel Buttons Menu Navigation -->
+    <nav class="arcade-menu-nav" aria-label="Arcade System Navigation">
+      <ul class="arcade-menu-list">
+        <!-- 01. Home -->
+        <li class="arcade-menu-item">
+          <a href="#hero" class="arcade-pixel-btn active" data-section="hero" id="arcade-nav-hero">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">👾</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">HOME</span>
+              <span class="btn-text-sub">01 // START</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 02. About Me -->
+        <li class="arcade-menu-item">
+          <a href="#about" class="arcade-pixel-btn" data-section="about" id="arcade-nav-about">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">👤</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">ABOUT ME</span>
+              <span class="btn-text-sub">02 // PROFILE</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 03. Skills -->
+        <li class="arcade-menu-item">
+          <a href="#skills" class="arcade-pixel-btn" data-section="skills" id="arcade-nav-skills">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">⚡</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">SKILLS</span>
+              <span class="btn-text-sub">03 // ARSENAL</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 04. Timeline -->
+        <li class="arcade-menu-item">
+          <a href="#timeline" class="arcade-pixel-btn" data-section="timeline" id="arcade-nav-timeline">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">⏳</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">TIMELINE</span>
+              <span class="btn-text-sub">04 // QUESTS</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 05. Projects -->
+        <li class="arcade-menu-item">
+          <a href="#projects" class="arcade-pixel-btn" data-section="projects" id="arcade-nav-projects">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">🚀</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">PROJECTS</span>
+              <span class="btn-text-sub">05 // BUILDS</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 06. Testimonials -->
+        <li class="arcade-menu-item">
+          <a href="#testimonials" class="arcade-pixel-btn" data-section="testimonials" id="arcade-nav-testimonials">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">⭐</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">TESTIMONIALS</span>
+              <span class="btn-text-sub">06 // REVIEWS</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 07. Chat -->
+        <li class="arcade-menu-item">
+          <a href="#chat" class="arcade-pixel-btn" data-section="chat" id="arcade-nav-chat">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">💬</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">CHAT</span>
+              <span class="btn-text-sub">07 // AI UPLINK</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+
+        <!-- 08. Contact -->
+        <li class="arcade-menu-item">
+          <a href="#contact" class="arcade-pixel-btn" data-section="contact" id="arcade-nav-contact">
+            <span class="arcade-btn-bracket" aria-hidden="true">▶</span>
+            <span class="arcade-btn-icon" aria-hidden="true">✉️</span>
+            <span class="arcade-btn-label">
+              <span class="btn-text-main">CONTACT</span>
+              <span class="btn-text-sub">08 // TRANSMIT</span>
+            </span>
+            <span class="arcade-btn-indicator-led" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Arcade Cabinet Telemetry & Hardware Control Deck -->
+    <div class="arcade-cabinet-footer">
+      <!-- High Score Dock -->
+      <div class="arcade-score-dock">
+        <div class="score-label-row">
+          <span class="score-key">HI-SCORE</span>
+          <span class="score-badge">MAX</span>
+        </div>
+        <div class="score-val" id="arcade-score-val">998,420</div>
+      </div>
+
+      <!-- Retro Hardware Toggles -->
+      <div class="arcade-hardware-switches">
+        <!-- SFX Synthesizer Toggle -->
+        <button id="arcade-sfx-toggle" class="arcade-hw-btn active" type="button" title="Toggle 8-bit Audio SFX" aria-pressed="true">
+          <span class="hw-icon" aria-hidden="true">🔊</span>
+          <span class="hw-text">SFX ON</span>
+        </button>
+
+        <!-- CRT Scanline Filter Switch -->
+        <button id="arcade-crt-toggle" class="arcade-hw-btn active" type="button" title="Toggle CRT Scanline Effect" aria-pressed="true">
+          <span class="hw-icon" aria-hidden="true">📺</span>
+          <span class="hw-text">CRT ON</span>
+        </button>
+
+        <!-- Dark/Light Theme Button -->
+        <button id="arcade-theme-toggle" class="arcade-hw-btn" type="button" title="Toggle Dark/Light Mode">
+          <span class="hw-icon" aria-hidden="true">⚡</span>
+          <span class="hw-text">THEME</span>
+        </button>
+      </div>
+
+      <!-- Coin / Status Telemetry -->
+      <div class="arcade-coin-readout">
+        <span class="coin-pulse-dot" aria-hidden="true"></span>
+        <span class="coin-text">CREDIT: 99 // FREE PLAY MODE</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div id="arcade-backdrop" class="arcade-backdrop" aria-hidden="true"></div>
+
+  <!-- Floating Arcade Control Panel Launcher (Visible on Mobile & Tablet) -->
+  <button id="arcade-launcher-btn" class="arcade-launcher-btn" type="button" aria-label="Open Arcade Control Panel" aria-expanded="false">
+    <span class="launcher-joystick" aria-hidden="true">🕹️</span>
+    <span class="launcher-text">ARCADE MENU</span>
+    <span class="launcher-halo" aria-hidden="true"></span>
+  </button>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <!-- Site Brand / Monogram -->
+      <a href="#hero" class="brand-logo" aria-label="Charan B R - Home">
+        <span class="brand-bracket">&lt;</span>
+        <span class="brand-text">CHARAN.DEV</span>
+        <span class="brand-bracket">/&gt;</span>
+      </a>
+
+      <!-- Primary Horizontal Navigation Links -->
+      <nav id="primary-nav" class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active"><span class="nav-idx">01.</span> Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link"><span class="nav-idx">02.</span> About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link"><span class="nav-idx">03.</span> Skills</a></li>
+          <li class="nav-item"><a href="#timeline" class="nav-link"><span class="nav-idx">04.</span> Timeline</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link"><span class="nav-idx">05.</span> Projects</a></li>
+          <li class="nav-item"><a href="#testimonials" class="nav-link"><span class="nav-idx">06.</span> Reviews</a></li>
+          <li class="nav-item"><a href="#chat" class="nav-link"><span class="nav-idx">07.</span> AI Chat</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link"><span class="nav-idx">08.</span> Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Group: Arcade Launcher, Night Mode Toggle & Mobile Menu Button -->
+      <div class="header-actions">
+        <!-- Arcade Quick Trigger Button for Header -->
+        <button id="header-arcade-trigger" class="cyber-toggle-btn arcade-quick-launch-btn" type="button" aria-label="Open Arcade Control Panel">
+          <span class="toggle-mode-icon" aria-hidden="true">🕹️</span>
+          <span class="toggle-mode-tag">ARCADE HUD</span>
+        </button>
+
+        <!-- Night Mode / Day Mode Toggle with Smooth Transition -->
+        <button id="theme-toggle" class="cyber-toggle-btn" type="button" aria-label="Toggle Night Mode" aria-pressed="false" title="Switch between dark and light mode">
+          <span class="toggle-mode-icon dark-icon" aria-hidden="true">🌙</span>
+          <span class="toggle-mode-icon light-icon" aria-hidden="true">☀️</span>
+          <span class="toggle-mode-tag">THEME</span>
+        </button>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         HERO SECTION: INTERACTIVE DEVELOPER DASHBOARD
+         - Large introduction: "Hi, I’m Charan B R"
+         - Subtitle: "Software Engineer | Java Developer"
+         - Animated status badge: "● Available for opportunities"
+         - Buttons: "View Projects" and "Contact Me"
+         - Floating pixel-style code snippets (e.g. System.out.println("Hello World");)
+         - Animated particles & grid lines around Charan's unaltered professional photo
+         - Glassmorphism cards mixed with pixel-art elements
+         ========================================================================== -->
+    <section id="hero" class="section hero-section" aria-labelledby="hero-title">
+      <!-- Floating Pixel-Style Code Snippets -->
+      <div class="floating-snippet snippet-java-print" aria-hidden="true">
+        <span class="snippet-comment">// Console greeting</span><br />
+        <span class="kw-java">System</span>.out.<span class="fn-java">println</span>(<span class="str-java">"Hello World"</span>);
+      </div>
+
+      <div class="floating-snippet snippet-spring-boot" aria-hidden="true">
+        <span class="snippet-badge">JAVA 21</span>
+        <span class="ann-java">@SpringBootApplication</span><br />
+        <span class="kw-java">public class</span> <span class="cls-java">CoreEngine</span> {}
+      </div>
+
+      <div class="floating-snippet snippet-async-task" aria-hidden="true">
+        <span class="kw-java">CompletableFuture</span>.<span class="fn-java">runAsync</span>(() -&gt; <br />
+        &nbsp;&nbsp;<span class="cls-java">Deployer</span>.<span class="fn-java">launchService</span>());
+      </div>
+
+      <div class="container hero-container">
+        <!-- Interactive Dashboard Frame -->
+        <div class="dashboard-frame glass-panel">
+          
+          <!-- Top Dashboard Telemetry Header -->
+          <div class="dashboard-top-bar">
+            <div class="telemetry-group">
+              <span class="telemetry-indicator" aria-hidden="true"></span>
+              <span class="telemetry-item"><span class="t-label">RUNTIME:</span> OpenJDK 21</span>
+              <span class="t-sep">|</span>
+              <span class="telemetry-item"><span class="t-label">BRANCH:</span> main</span>
+              <span class="t-sep">|</span>
+              <span class="telemetry-item"><span class="t-label">STATUS:</span> 200 OK</span>
+            </div>
+
+            <!-- Small Animated Status Badge -->
+            <div class="status-badge-animated">
+              <span class="status-pulse-dot" aria-hidden="true"></span>
+              <span class="status-badge-text">Available for opportunities</span>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Split Grid -->
+          <div class="dashboard-grid">
+            
+            <!-- Left Console: Developer Introduction & Actions -->
+            <div class="dashboard-console">
+              <div class="terminal-prompt-eyebrow">
+                <span class="prompt-user">dev@charan</span>:<span class="prompt-path">~/workspace</span>$ <span class="prompt-cmd">whoami</span>
+              </div>
+
+              <!-- Large Prominent Introduction -->
+              <h1 id="hero-title" class="hero-name-title">
+                Hi, I’m <span class="neon-name">Charan B R</span>
+              </h1>
+
+              <!-- Subtitle -->
+              <p class="hero-role-subtitle">
+                Software Engineer <span class="role-pipe">|</span> Java Developer
+              </p>
+
+              <!-- Description Tagline -->
+              <p class="hero-bio-lead">
+                Specialized in building high-throughput backend microservices, resilient distributed systems with <strong>Java &amp; Spring Boot</strong>, and intuitive modern web applications. Focused on architectural simplicity, clean code, and cloud scalability.
+              </p>
+
+              <!-- Call-to-Action Buttons -->
+              <div class="hero-actions-row">
+                <a href="#projects" class="cyber-btn cyber-btn-primary">
+                  <span class="btn-pixel-icon" aria-hidden="true">▶</span>
+                  <span>View Projects</span>
+                </a>
+                <a href="#contact" class="cyber-btn cyber-btn-secondary">
+                  <span class="btn-pixel-icon" aria-hidden="true">✉</span>
+                  <span>Contact Me</span>
+                </a>
+                <a href="#about" class="cyber-btn cyber-btn-ghost">
+                  <span class="btn-pixel-icon" aria-hidden="true">ℹ</span>
+                  <span>System Specs</span>
+                </a>
+              </div>
+
+              <!-- Quick Tech Stack Matrix -->
+              <div class="hero-stack-ribbon">
+                <span class="stack-ribbon-label">STACK:</span>
+                <span class="stack-chip">Java 21</span>
+                <span class="stack-chip">Spring Boot</span>
+                <span class="stack-chip">Microservices</span>
+                <span class="stack-chip">PostgreSQL</span>
+                <span class="stack-chip">Docker</span>
+                <span class="stack-chip">AWS</span>
+              </div>
+            </div>
+
+            <!-- Right Profile HUD: Integrated Professional Photo -->
+            <div class="dashboard-profile-hud" aria-label="Developer Profile Console">
+              <div class="profile-card-quantum glass-panel">
+                
+                <!-- Ambient Particle Orbit Rings & Decorative Corner Brackets -->
+                <div class="hud-orbit-ring" aria-hidden="true"></div>
+                <span class="hud-corner top-left" aria-hidden="true"></span>
+                <span class="hud-corner top-right" aria-hidden="true"></span>
+                <span class="hud-corner bottom-left" aria-hidden="true"></span>
+                <span class="hud-corner bottom-right" aria-hidden="true"></span>
+
+                <!-- Top Profile Tag -->
+                <div class="profile-hud-tag">
+                  <span class="radar-scan-dot" aria-hidden="true"></span>
+                  <span>CHARAN B R // ENGINEER</span>
+                </div>
+
+                <!-- Unaltered Professional Photo Container -->
+                <div class="profile-image-viewport">
+                  <img
+                    src="charan.jpg"
+                    alt="Charan B R - Professional Portrait, Software Engineer & Java Developer"
+                    class="profile-real-photo"
+                    width="380"
+                    height="380"
+                    loading="eager"
+                  />
+                  <!-- Cyber Aura Vignette for Seamless Aesthetic Integration -->
+                  <div class="profile-cyber-vignette" aria-hidden="true"></div>
+                </div>
+
+                <!-- Bottom Telemetry Readout -->
+                <div class="profile-telemetry-dock">
+                  <div class="telemetry-metric">
+                    <span class="metric-key">ROLE:</span>
+                    <span class="metric-val">BACKEND / FULL-STACK</span>
+                  </div>
+                  <div class="telemetry-metric">
+                    <span class="metric-key">SYSTEM:</span>
+                    <span class="metric-val status-online">OPTIMAL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT SECTION: ARCHITECTURE & PHILOSOPHY
+         ========================================================================== -->
+    <section id="about" class="section about-section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 02 // PROFILE_SPEC ]</span>
+          <h2 id="about-title" class="section-title">About Charan</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="about-grid-layout">
+          <!-- Bio Narrative Glass Card -->
+          <div class="about-text-card glass-panel">
+            <h3 class="about-lead-headline">
+              Crafting reliable, scalable software architectures with engineering rigor.
+            </h3>
+            <p>
+              I am a <strong>Software Engineer &amp; Java Developer</strong> passionate about engineering distributed backends that handle mission-critical workloads seamlessly. My technical journey centers on designing clean, asynchronous microservices, optimizing low-latency database queries, and integrating robust CI/CD pipelines.
+            </p>
+            <p>
+              With strong foundations in Object-Oriented Design, Concurrency, and Domain-Driven Architecture, I focus on building systems that are not just functional, but maintainable and battle-tested for enterprise scale.
+            </p>
+            <p>
+              Whether tuning JVM garbage collection parameters, architecting event-driven Kafka message buses, or building ergonomic RESTful interfaces, I strive for clean software craftsmanship with pragmatic problem-solving.
+            </p>
+
+            <!-- Key Engineering Metrics -->
+            <div class="about-metrics-grid">
+              <div class="metric-glass-card">
+                <span class="metric-big-number">Java 21</span>
+                <span class="metric-sub-label">Primary Ecosystem</span>
+              </div>
+              <div class="metric-glass-card">
+                <span class="metric-big-number">15+</span>
+                <span class="metric-sub-label">Projects Deployed</span>
+              </div>
+              <div class="metric-glass-card">
+                <span class="metric-big-number">&lt;40ms</span>
+                <span class="metric-sub-label">Avg API Latency</span>
+              </div>
+              <div class="metric-glass-card">
+                <span class="metric-big-number">99.9%</span>
+                <span class="metric-sub-label">Uptime Mindset</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Code Representation Terminal -->
+          <div class="about-code-terminal glass-panel" aria-label="CharanBR Java Class Representation">
+            <div class="terminal-mac-header">
+              <div class="mac-dots">
+                <span class="dot d-red"></span>
+                <span class="dot d-yellow"></span>
+                <span class="dot d-green"></span>
+              </div>
+              <span class="terminal-filename">CharanBR.java</span>
+            </div>
+            <div class="terminal-code-body">
+              <pre><code><span class="kw-java">package</span> com.charan.portfolio;
+
+<span class="kw-java">public record</span> <span class="cls-java">CharanBR</span>(
+  <span class="kw-java">String</span> name,
+  <span class="kw-java">String</span> role,
+  <span class="kw-java">String</span>[] coreStack,
+  <span class="kw-java">boolean</span> openForOpportunities
+) {
+  <span class="kw-java">public static</span> CharanBR <span class="fn-java">getInstance</span>() {
+    <span class="kw-java">return new</span> <span class="cls-java">CharanBR</span>(
+      <span class="str-java">"Charan B R"</span>,
+      <span class="str-java">"Software Engineer | Java Developer"</span>,
+      <span class="kw-java">new String</span>[]{ <span class="str-java">"Java"</span>, <span class="str-java">"Spring Boot"</span>, <span class="str-java">"Microservices"</span>, <span class="str-java">"PostgreSQL"</span>, <span class="str-java">"AWS"</span> },
+      <span class="kw-java">true</span>
+    );
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SKILLS SECTION: ARSENAL MATRIX
+         ========================================================================== -->
+    <section id="skills" class="section skills-section" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 03 // TECH_MATRIX ]</span>
+          <h2 id="skills-title" class="section-title">Technical Expertise</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="skills-quantum-grid">
+          <!-- Skill Card 1: Java & Backend Core -->
+          <div class="skill-category-box glass-panel highlight-box">
+            <div class="category-top">
+              <span class="category-icon-pixel" aria-hidden="true">☕</span>
+              <div>
+                <h3 class="category-heading">Java &amp; Core Backend</h3>
+                <span class="category-level">Primary Competency</span>
+              </div>
+            </div>
+            <ul class="skills-tag-cloud">
+              <li class="pixel-tag featured-tag">Java 17 / 21</li>
+              <li class="pixel-tag featured-tag">Spring Boot 3.x</li>
+              <li class="pixel-tag">Spring Cloud</li>
+              <li class="pixel-tag">Spring Security</li>
+              <li class="pixel-tag">Hibernate / JPA</li>
+              <li class="pixel-tag">REST &amp; GraphQL</li>
+              <li class="pixel-tag">Multithreading &amp; Concurrency</li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 2: Distributed Systems & Caching -->
+          <div class="skill-category-box glass-panel">
+            <div class="category-top">
+              <span class="category-icon-pixel" aria-hidden="true">⚡</span>
+              <div>
+                <h3 class="category-heading">Databases &amp; Caching</h3>
+                <span class="category-level">Data Integrity &amp; Query Tuning</span>
+              </div>
+            </div>
+            <ul class="skills-tag-cloud">
+              <li class="pixel-tag">PostgreSQL</li>
+              <li class="pixel-tag">MySQL</li>
+              <li class="pixel-tag">Redis (Caching)</li>
+              <li class="pixel-tag">MongoDB</li>
+              <li class="pixel-tag">Apache Kafka</li>
+              <li class="pixel-tag">Flyway Database Migrations</li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 3: Cloud & Containerization -->
+          <div class="skill-category-box glass-panel">
+            <div class="category-top">
+              <span class="category-icon-pixel" aria-hidden="true">☁️</span>
+              <div>
+                <h3 class="category-heading">Cloud &amp; DevOps</h3>
+                <span class="category-level">Container Orchestration &amp; CI/CD</span>
+              </div>
+            </div>
+            <ul class="skills-tag-cloud">
+              <li class="pixel-tag">Docker Containers</li>
+              <li class="pixel-tag">Kubernetes (K8s)</li>
+              <li class="pixel-tag">AWS (EC2, S3, RDS)</li>
+              <li class="pixel-tag">GitHub Actions CI/CD</li>
+              <li class="pixel-tag">Linux / Bash Scripting</li>
+              <li class="pixel-tag">Prometheus &amp; Grafana</li>
+            </ul>
+          </div>
+
+          <!-- Skill Card 4: Web Frontend & Tools -->
+          <div class="skill-category-box glass-panel">
+            <div class="category-top">
+              <span class="category-icon-pixel" aria-hidden="true">🎨</span>
+              <div>
+                <h3 class="category-heading">Frontend &amp; Tooling</h3>
+                <span class="category-level">Modern UI &amp; Workflows</span>
+              </div>
+            </div>
+            <ul class="skills-tag-cloud">
+              <li class="pixel-tag">JavaScript / TypeScript</li>
+              <li class="pixel-tag">React.js</li>
+              <li class="pixel-tag">HTML5 / Semantic CSS3</li>
+              <li class="pixel-tag">Git Version Control</li>
+              <li class="pixel-tag">Postman &amp; Swagger/OpenAPI</li>
+              <li class="pixel-tag">JUnit 5 &amp; Mockito</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TIMELINE SECTION: EXPERIENCE & RELEASE LOG
+         ========================================================================== -->
+    <section id="timeline" class="section timeline-section" aria-labelledby="timeline-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 04 // RELEASE_LOG ]</span>
+          <h2 id="timeline-title" class="section-title">Experience &amp; Career Trajectory</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="circuit-timeline-wrapper">
+          <ol class="circuit-timeline">
+            <!-- Timeline Node 1 -->
+            <li class="timeline-node">
+              <div class="node-marker" aria-hidden="true"></div>
+              <article class="timeline-body-card glass-panel">
+                <div class="card-meta-line">
+                  <span class="release-tag">v2.4 [CURRENT]</span>
+                  <span class="timeline-duration"><time datetime="2024-01">2024</time> – Present</span>
+                </div>
+                <h3 class="role-title">Software Engineer (Java Backend)</h3>
+                <h4 class="company-title">Enterprise Tech Solutions</h4>
+                <p class="role-summary">
+                  Architected high-scale Spring Boot microservices handling asynchronous event messaging. Streamlined database indexing and connection pool configurations, lowering p95 response times by 38%.
+                </p>
+                <div class="tech-pills-row">
+                  <span class="tech-pill">Java 21</span>
+                  <span class="tech-pill">Spring Boot</span>
+                  <span class="tech-pill">PostgreSQL</span>
+                  <span class="tech-pill">Docker</span>
+                  <span class="tech-pill">AWS</span>
+                </div>
+              </article>
+            </li>
+
+            <!-- Timeline Node 2 -->
+            <li class="timeline-node">
+              <div class="node-marker" aria-hidden="true"></div>
+              <article class="timeline-body-card glass-panel">
+                <div class="card-meta-line">
+                  <span class="release-tag">v2.0 [INTERNSHIP]</span>
+                  <span class="timeline-duration"><time datetime="2023-05">May 2023</time> – <time datetime="2023-11">Nov 2023</time></span>
+                </div>
+                <h3 class="role-title">Software Engineering Intern</h3>
+                <h4 class="company-title">CloudScale Systems</h4>
+                <p class="role-summary">
+                  Implemented RESTful API endpoints for analytics dashboards, authoring comprehensive JUnit 5 test suites with 92% code coverage. Collaborated on containerized deployments via Docker and Kubernetes.
+                </p>
+                <div class="tech-pills-row">
+                  <span class="tech-pill">Java</span>
+                  <span class="tech-pill">Spring Data JPA</span>
+                  <span class="tech-pill">JUnit 5</span>
+                  <span class="tech-pill">Redis</span>
+                  <span class="tech-pill">Git</span>
+                </div>
+              </article>
+            </li>
+
+            <!-- Timeline Node 3: Education -->
+            <li class="timeline-node">
+              <div class="node-marker" aria-hidden="true"></div>
+              <article class="timeline-body-card glass-panel">
+                <div class="card-meta-line">
+                  <span class="release-tag">v1.0 [EDUCATION]</span>
+                  <span class="timeline-duration"><time datetime="2020">2020</time> – <time datetime="2024">2024</time></span>
+                </div>
+                <h3 class="role-title">B.E. in Computer Science &amp; Engineering</h3>
+                <h4 class="company-title">University Institute of Technology</h4>
+                <p class="role-summary">
+                  Acquired deep grounding in Data Structures, Advanced Algorithms, Object-Oriented Software Design, Operating Systems, and Distributed Computing. Graduated with First Class Honors.
+                </p>
+                <div class="tech-pills-row">
+                  <span class="tech-pill">Data Structures</span>
+                  <span class="tech-pill">Algorithms</span>
+                  <span class="tech-pill">DBMS</span>
+                  <span class="tech-pill">System Design</span>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROJECTS SECTION: FEATURED DEPLOYMENTS
+         ========================================================================== -->
+    <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 05 // DEPLOYMENTS ]</span>
+          <h2 id="projects-title" class="section-title">Featured Projects</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="projects-quantum-grid">
+          <!-- Project Card 1: Spring Boot Microservices -->
+          <article class="project-card glass-panel">
+            <div class="project-status-bar">
+              <span class="badge-accent">MICROSERVICES ARCHITECTURE</span>
+              <div class="project-actions">
+                <a href="https://github.com/charan" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="GitHub Repository" title="Source Code">
+                  <span>[ GITHUB ]</span>
+                </a>
+                <a href="https://demo.example.com" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="Live Demo" title="Deployment">
+                  <span>[ DEMO ]</span>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">CloudPulse: Telemetry &amp; Metrics Pipeline</h3>
+            <p class="project-summary">
+              Distributed Java event-processing pipeline that ingests, parses, and aggregates system telemetry in real time. Features fault-tolerant Kafka topic streaming and Redis cached metrics.
+            </p>
+            <ul class="project-stack-tags" aria-label="Technologies used">
+              <li class="stack-badge">Java 21</li>
+              <li class="stack-badge">Spring Boot</li>
+              <li class="stack-badge">Kafka</li>
+              <li class="stack-badge">Redis</li>
+              <li class="stack-badge">PostgreSQL</li>
+              <li class="stack-badge">Docker</li>
+            </ul>
+          </article>
+
+          <!-- Project Card 2: Real-Time Collaboration -->
+          <article class="project-card glass-panel">
+            <div class="project-status-bar">
+              <span class="badge-accent">FULL-STACK PLATFORM</span>
+              <div class="project-actions">
+                <a href="https://github.com/charan" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="GitHub Repository" title="Source Code">
+                  <span>[ GITHUB ]</span>
+                </a>
+                <a href="https://demo.example.com" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="Live Demo" title="Deployment">
+                  <span>[ DEMO ]</span>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">TaskForge: Synchronized Dev Workspace</h3>
+            <p class="project-summary">
+              Collaborative agile board platform with WebSocket-based state replication, JWT role-based access control, and transactional task execution pipelines.
+            </p>
+            <ul class="project-stack-tags" aria-label="Technologies used">
+              <li class="stack-badge">Spring Boot</li>
+              <li class="stack-badge">WebSockets</li>
+              <li class="stack-badge">React</li>
+              <li class="stack-badge">TypeScript</li>
+              <li class="stack-badge">MySQL</li>
+              <li class="stack-badge">Tailwind</li>
+            </ul>
+          </article>
+
+          <!-- Project Card 3: Cloud DevOps Utility -->
+          <article class="project-card glass-panel">
+            <div class="project-status-bar">
+              <span class="badge-accent">DEVOPS &amp; CLI</span>
+              <div class="project-actions">
+                <a href="https://github.com/charan" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="GitHub Repository" title="Source Code">
+                  <span>[ GITHUB ]</span>
+                </a>
+                <a href="https://demo.example.com" target="_blank" rel="noopener noreferrer" class="link-pixel" aria-label="Live Demo" title="Deployment">
+                  <span>[ DEMO ]</span>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">InfraAudit: Automated Cloud Optimizer</h3>
+            <p class="project-summary">
+              Automated CLI scanner that identifies orphaned cloud volumes, unattached IP allocations, and container vulnerabilities with actionable rightsizing reports.
+            </p>
+            <ul class="project-stack-tags" aria-label="Technologies used">
+              <li class="stack-badge">Java CLI</li>
+              <li class="stack-badge">AWS SDK</li>
+              <li class="stack-badge">Docker API</li>
+              <li class="stack-badge">Jackson JSON</li>
+              <li class="stack-badge">GitHub Actions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TESTIMONIALS SECTION: GUILD ENDORSEMENTS & CODE REVIEWS
+         ========================================================================== -->
+    <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 06 // GUILD_ENDORSEMENTS ]</span>
+          <h2 id="testimonials-title" class="section-title">Peer Reviews &amp; Endorsements</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Endorsement 1 -->
+          <article class="testimonial-card glass-panel">
+            <div class="testimonial-header">
+              <div class="reviewer-badge-cluster">
+                <div class="reviewer-avatar-frame">
+                  <span class="reviewer-pixel-avatar">👨‍💻</span>
+                </div>
+                <div>
+                  <h3 class="reviewer-name">Vikram Sengupta</h3>
+                  <span class="reviewer-role">Principal Systems Architect, CloudScale</span>
+                </div>
+              </div>
+              <div class="pixel-star-rating" aria-label="5 out of 5 stars">
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Charan demonstrated exceptional depth in low-latency Java backend engineering. He redesigned our asynchronous Kafka event stream pipelines, boosting throughput by 38% while guaranteeing strict transactional integrity. A truly dependable engineer."
+            </p>
+            <div class="testimonial-footer-meta">
+              <span class="quest-tag"><span class="tag-dot"></span> DISTRIBUTED SYSTEMS</span>
+              <span class="review-date">VERIFIED LOG // 2024</span>
+            </div>
+          </article>
+
+          <!-- Endorsement 2 -->
+          <article class="testimonial-card glass-panel">
+            <div class="testimonial-header">
+              <div class="reviewer-badge-cluster">
+                <div class="reviewer-avatar-frame">
+                  <span class="reviewer-pixel-avatar">👩‍💻</span>
+                </div>
+                <div>
+                  <h3 class="reviewer-name">Dr. Ananya Rao</h3>
+                  <span class="reviewer-role">Engineering Director, Enterprise Tech</span>
+                </div>
+              </div>
+              <div class="pixel-star-rating" aria-label="5 out of 5 stars">
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Working with Charan on microservices decomposition was fantastic. His mastery of Spring Boot, clean domain-driven models, and database index tuning saved hundreds of developer hours. His code reviews are rigorous and insightful."
+            </p>
+            <div class="testimonial-footer-meta">
+              <span class="quest-tag"><span class="tag-dot"></span> SPRING BOOT &amp; ARCHITECTURE</span>
+              <span class="review-date">VERIFIED LOG // 2024</span>
+            </div>
+          </article>
+
+          <!-- Endorsement 3 -->
+          <article class="testimonial-card glass-panel">
+            <div class="testimonial-header">
+              <div class="reviewer-badge-cluster">
+                <div class="reviewer-avatar-frame">
+                  <span class="reviewer-pixel-avatar">⚡</span>
+                </div>
+                <div>
+                  <h3 class="reviewer-name">Marcus Vance</h3>
+                  <span class="reviewer-role">Staff DevOps &amp; Cloud Infrastructure Lead</span>
+                </div>
+              </div>
+              <div class="pixel-star-rating" aria-label="5 out of 5 stars">
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+                <span class="star-active">★</span>
+              </div>
+            </div>
+            <p class="testimonial-quote">
+              "Charan makes cloud deployments a breeze. He containerized complex Java multi-module services with Docker, set up robust GitHub Actions CI/CD pipelines, and ensured zero-downtime rolling updates on AWS. Highly recommended!"
+            </p>
+            <div class="testimonial-footer-meta">
+              <span class="quest-tag"><span class="tag-dot"></span> CLOUD &amp; DEVOPS</span>
+              <span class="review-date">VERIFIED LOG // 2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CHAT SECTION: INTERACTIVE AI NEURAL TERMINAL
+         ========================================================================== -->
+    <section id="chat" class="section chat-section" aria-labelledby="chat-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 07 // NEURAL_UPLINK ]</span>
+          <h2 id="chat-title" class="section-title">Interactive AI Terminal Chat</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="chat-terminal-wrapper glass-panel">
+          <!-- Terminal Header Bar -->
+          <div class="chat-terminal-header">
+            <div class="terminal-traffic-lights">
+              <span class="terminal-dot dot-red"></span>
+              <span class="terminal-dot dot-yellow"></span>
+              <span class="terminal-dot dot-cyan"></span>
+            </div>
+            <div class="terminal-session-title">
+              <span class="terminal-bot-avatar">🤖</span>
+              <span>CHARAN-AI CONSOLE // UPLINK PORT: 8080 [v2.4]</span>
+            </div>
+            <div class="terminal-latency-badge">
+              <span class="latency-pulse"></span>
+              <span>ONLINE (18ms)</span>
+            </div>
+          </div>
+
+          <!-- Quick Query Preset Chips -->
+          <div class="chat-quick-queries">
+            <span class="quick-chip-label">QUICK PROMPTS:</span>
+            <button type="button" class="quick-prompt-btn" data-query="stack">☕ Core Java Stack?</button>
+            <button type="button" class="quick-prompt-btn" data-query="projects">🚀 Featured Microservices?</button>
+            <button type="button" class="quick-prompt-btn" data-query="experience">⏳ Career Trajectory?</button>
+            <button type="button" class="quick-prompt-btn" data-query="availability">💼 Open for Roles?</button>
+            <button type="button" class="quick-prompt-btn" data-query="contact">✉️ Get in Touch?</button>
+          </div>
+
+          <!-- Terminal Output Log -->
+          <div class="chat-messages-container" id="chat-messages" role="log" aria-live="polite">
+            <!-- Initial System Welcome -->
+            <div class="chat-bubble chat-bubble-ai">
+              <div class="bubble-speaker">
+                <span class="speaker-icon">🤖</span>
+                <span class="speaker-name">CHARAN-AI</span>
+                <span class="speaker-time">JUST NOW</span>
+              </div>
+              <div class="bubble-content">
+                Greetings traveler! I am Charan's neural terminal assistant. Ask me anything regarding Charan B R's Java engineering background, microservices architectures, experience, or role availability. Click a quick prompt above or transmit a custom query below!
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Command Form -->
+          <form id="chat-terminal-form" class="chat-input-deck" autocomplete="off">
+            <span class="cli-chevron" aria-hidden="true">&gt;</span>
+            <input
+              type="text"
+              id="chat-user-input"
+              class="chat-cli-input"
+              placeholder="Query Charan's system (e.g. 'What is Charan\'s experience with Spring Boot?')..."
+              required
+            />
+            <button type="submit" id="chat-submit-btn" class="chat-send-btn">
+              <span class="btn-send-icon">⚡</span>
+              <span>TRANSMIT</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT SECTION: COMMUNICATION UPLINK TERMINAL
+         ========================================================================== -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-heading-hud">
+          <span class="section-code-idx">[ 08 // UPLINK_TERMINAL ]</span>
+          <h2 id="contact-title" class="section-title">Initiate Contact</h2>
+          <div class="section-accent-bar"></div>
+        </div>
+
+        <div class="contact-terminal-grid">
+          <!-- Left Channel Information -->
+          <div class="contact-details-box glass-panel">
+            <h3 class="contact-box-title">Ready to build something impactful?</h3>
+            <p class="contact-box-desc">
+              I am actively seeking software engineering roles and exciting collaboration opportunities. Feel free to connect via direct email or any developer channel below.
+            </p>
+
+            <ul class="contact-channel-list">
+              <li class="channel-item">
+                <span class="channel-icon" aria-hidden="true">✉️</span>
+                <div>
+                  <span class="channel-label">EMAIL ADDRESS:</span>
+                  <a href="mailto:charan.engineer@example.com" class="channel-val-link">charan.engineer@example.com</a>
+                </div>
+              </li>
+              <li class="channel-item">
+                <span class="channel-icon" aria-hidden="true">📍</span>
+                <div>
+                  <span class="channel-label">LOCATION &amp; AVAILABILITY:</span>
+                  <span class="channel-val">Bangalore, India (Available for Remote / Relocation)</span>
+                </div>
+              </li>
+              <li class="channel-item">
+                <span class="channel-icon" aria-hidden="true">💼</span>
+                <div>
+                  <span class="channel-label">TARGET ROLES:</span>
+                  <span class="channel-val">Software Engineer, Java Developer, Backend Engineer</span>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Social Coordinates -->
+            <div class="social-links-dock">
+              <span class="dock-title">NETWORKS:</span>
+              <div class="dock-buttons">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="cyber-chip-btn">
+                  <span>GitHub</span> ↗
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="cyber-chip-btn">
+                  <span>LinkedIn</span> ↗
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="cyber-chip-btn">
+                  <span>Twitter / X</span> ↗
+                </a>
+                <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer" class="cyber-chip-btn">
+                  <span>LeetCode</span> ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Communication Form Console -->
+          <div class="contact-form-card glass-panel">
+            <div class="form-card-header">
+              <span class="form-header-badge">ENCRYPTED TRANSMISSION</span>
+              <span class="form-header-state">PORT: 443</span>
+            </div>
+
+            <form id="contact-form" class="cyber-form" action="#" method="POST" novalidate>
+              <div class="input-field-group">
+                <label for="contact-name" class="input-label">NAME <span class="req">*</span></label>
+                <input type="text" id="contact-name" name="name" class="cyber-input" placeholder="e.g. Alex Vance" required autocomplete="name" />
+              </div>
+
+              <div class="input-field-group">
+                <label for="contact-email" class="input-label">EMAIL <span class="req">*</span></label>
+                <input type="email" id="contact-email" name="email" class="cyber-input" placeholder="e.g. alex@company.com" required autocomplete="email" />
+              </div>
+
+              <div class="input-field-group">
+                <label for="contact-subject" class="input-label">SUBJECT <span class="req">*</span></label>
+                <input type="text" id="contact-subject" name="subject" class="cyber-input" placeholder="e.g. Software Engineering Opportunity" required />
+              </div>
+
+              <div class="input-field-group">
+                <label for="contact-message" class="input-label">MESSAGE <span class="req">*</span></label>
+                <textarea id="contact-message" name="message" class="cyber-textarea" rows="5" placeholder="Enter message payload..." required></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="cyber-btn cyber-btn-primary btn-full">
+                <span class="btn-pixel-icon" aria-hidden="true">⚡</span>
+                <span>Dispatch Message to Charan</span>
+              </button>
+              <p id="form-status" class="form-status-feedback" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER: TELEMETRY DOCK & COPYRIGHT
+       ========================================================================== -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copyright">
+          &copy; <span id="current-year">2026</span> <strong>Charan B R</strong>. All rights reserved.
+        </p>
+        <p class="footer-subtext">
+          Designed with futuristic pixel-art aesthetics, glassmorphism, and responsive CSS.
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <ul class="footer-links-list">
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+          <li><a href="mailto:charan.engineer@example.com" class="footer-link">Email</a></li>
+        </ul>
+        <a href="#hero" class="back-to-top-hud" aria-label="Back to top">
+          <span class="top-icon" aria-hidden="true">▲</span> TOP
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
